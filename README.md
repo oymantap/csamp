@@ -1,7 +1,7 @@
 # ⚡ CSAMP (Compiler for SA-MP & open.mp)
 
 <p align="center">
-  <img src="https://github.com/oymantap/csamp/icon.jpg" alt="CSAMP Logo" width="200" style="border-radius: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.5);"/>
+  <img src="./icon.png" alt="CSAMP Logo" width="200" style="border-radius: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.5);"/>
 </p>
 
 <p align="center">
