@@ -1,40 +1,162 @@
 # ⚡ CSAMP (Compiler for SA-MP & open.mp)
 
 <p align="center">
-  <img src="./icon.png" alt="CSAMP Logo" width="200" style="border-radius: 15px; box-shadow: 0px 4px 10px rgba(0,0,0,0.5);"/>
+  <img src="./icon.png" alt="CSAMP Logo" width="200"/>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/v/release/oymantap/csamp?style=for-the-badge&color=00f0ff" alt="Release">
-  <img src="https://img.shields.io/github/stars/oymantap/csamp?style=for-the-badge&color=2ecc71" alt="Stars">
-  <img src="https://img.shields.io/badge/Platform-Termux%20(Android)-orange?style=for-the-badge" alt="Platform">
+  <img src="https://img.shields.io/github/v/release/oymantap/csamp?style=for-the-badge&color=00f0ff">
+  <img src="https://img.shields.io/github/stars/oymantap/csamp?style=for-the-badge&color=2ecc71">
+  <img src="https://img.shields.io/badge/Platform-Termux%20(Android)-orange?style=for-the-badge">
 </p>
 
 ---
 
-**CSAMP** adalah proyek *recompile* resmi dari core Pawn Compiler (`pawncc`) agar dapat berjalan secara native dan optimal di lingkungan **Termux (Android)**. Proyek ini dirancang khusus untuk para developer SA-MP (*San Andreas Multiplayer*) dan open.mp yang ingin melakukan *coding* dan *compiling* Gamemode atau Filterscript langsung dari HP Android tanpa ketergantungan pada PC/Laptop.
+## 🚀 CSAMP
 
-Untuk melihat source code compiler original dari komunitas, silakan kunjungi [Official Pawn Compiler Repository](https://github.com/pawn-lang/compiler).
-
----
-
-## 🚀 Fitur Unggulan
-
-* **Native Termux Support**: Berjalan super cepat langsung di arsitektur ARM/ARM64 Android tanpa emulasi Linux chroot/proot yang berat.
-* **Modern Interactive Installer**: Dilengkapi dengan tampilan instalasi berbasis *Cyberpunk ASCII Art* yang estetik dan informatif.
-* **Full AMX Output**: Mendukung penuh pembuatan file `.amx` dari gamemode berskala besar (*Heavy Script*).
-* **Fix Missing Library Error**: Menyertakan `libpawnc.so` yang sudah disesuaikan dengan path internal Termux (`$PREFIX/lib/`).
+CSAMP adalah recompile dari Pawn Compiler (`pawncc`) agar bisa jalan native di **Termux (Android)** untuk development SA-MP / open.mp langsung dari HP.
 
 ---
 
-## 🛠️ Panduan Instalasi (Lengkap & Detail)
+## 🚀 Fitur
 
-Pilih salah satu metode instalasi di bawah ini yang paling sesuai dengan kebutuhanmu.
+- Native ARM / ARM64 Android (Termux)
+- Installer otomatis
+- Support full `.amx` build
+- Fix library `libpawnc.so`
+- Optimized path Termux `$PREFIX`
 
-### Metode 1: Instalasi Otomatis (Sangat Direkomendasikan)
+---
 
-Metode ini akan otomatis membersihkan compiler lama (jika ada), mengunduh binary terbaru, mengatur hak akses (`chmod`), dan menempatkan file ke folder sistem yang tepat.
+## 🛠️ Instalasi
 
-Buka Termux kamu, lalu copas perintah sakti ini:
+### 🔹 Auto Install (Recommended)
+
 ```bash
-rm -f install.sh && wget [https://raw.githubusercontent.com/oymantap/csamp/main/install.sh](https://raw.githubusercontent.com/oymantap/csamp/main/install.sh) && chmod +x install.sh && ./install.sh
+rm -f install.sh && wget https://raw.githubusercontent.com/oymantap/csamp/main/install.sh && chmod +x install.sh && ./install.sh
+
+
+---
+
+🔹 Manual Install
+
+Download file dari Releases:
+
+pawncc
+
+pawndisasm
+
+libpawnc.so
+
+
+
+---
+
+1. Pindahkan binary
+
+mv /sdcard/Download/pawncc $PREFIX/bin/
+mv /sdcard/Download/pawndisasm $PREFIX/bin/
+
+
+---
+
+2. Kasih permission
+
+chmod +x $PREFIX/bin/pawncc
+chmod +x $PREFIX/bin/pawndisasm
+
+
+---
+
+3. Pindahkan library
+
+mv /sdcard/Download/libpawnc.so $PREFIX/lib/
+
+
+---
+
+4. Test install
+
+pawncc
+
+Kalau keluar banner CSAMP, berarti sukses.
+
+
+---
+
+📖 Cara Compile
+
+pawncc -Z+ -i/sdcard/include -w239 -w214 gamemodes/main.pwn
+
+
+---
+
+📌 Penjelasan Flag
+
+Flag	Fungsi
+
+-Z+	mode kompatibilitas SA-MP
+-i	path include
+-w	disable warning tertentu
+-d3	debug mode
+
+
+
+---
+
+📂 Contoh Penggunaan
+
+Single Gamemode
+
+pawncc -Z+ -i/sdcard/GM/include -w239 /sdcard/GM/gamemodes/main.pwn
+
+Modular Project
+
+pawncc -Z+ -i/sdcard/GM/include -i./ -w239 /sdcard/GM/gamemodes/main.pwn
+
+
+---
+
+🚨 Troubleshooting
+
+❌ fatal error 100
+
+Path salah / storage belum diizinkan
+
+termux-setup-storage
+
+
+---
+
+❌ input line too long
+
+Baris kode terlalu panjang
+→ pecah string jadi beberapa baris
+
+
+---
+
+🤝 Kontribusi
+
+Fork repo
+
+Buat branch fitur
+
+Commit perubahan
+
+Pull request
+
+
+
+---
+
+📇 Kontak
+
+Maintainer: RYCL / oymantap
+
+
+---
+
+<p align="center">
+Made with ❤️ for SA-MP & open.mp Android community
+</p>
