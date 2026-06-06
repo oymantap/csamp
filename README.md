@@ -34,7 +34,7 @@ CSAMP adalah recompile dari Pawn Compiler (`pawncc`) agar bisa jalan native di *
 
 ```bash
 rm -f install.sh && wget https://raw.githubusercontent.com/oymantap/csamp/main/install.sh && chmod +x install.sh && ./install.sh
-
+```
 
 ---
 
@@ -53,41 +53,41 @@ libpawnc.so
 ---
 
 1. Pindahkan binary
-
+```bash
 mv /sdcard/Download/pawncc $PREFIX/bin/
 mv /sdcard/Download/pawndisasm $PREFIX/bin/
-
+````
 
 ---
 
 2. Kasih permission
-
+```bash
 chmod +x $PREFIX/bin/pawncc
 chmod +x $PREFIX/bin/pawndisasm
-
+```
 
 ---
 
 3. Pindahkan library
-
+```bash
 mv /sdcard/Download/libpawnc.so $PREFIX/lib/
-
+```
 
 ---
 
 4. Test install
-
+```bash
 pawncc
-
+```
 Kalau keluar banner CSAMP, berarti sukses.
 
 
 ---
 
 📖 Cara Compile
-
+```bash
 pawncc -Z+ -i/sdcard/include -w239 -w214 gamemodes/main.pwn
-
+```
 
 ---
 
@@ -107,13 +107,13 @@ Flag	Fungsi
 📂 Contoh Penggunaan
 
 Single Gamemode
-
+```bah
 pawncc -Z+ -i/sdcard/GM/include -w239 /sdcard/GM/gamemodes/main.pwn
-
+```
 Modular Project
-
+```bash
 pawncc -Z+ -i/sdcard/GM/include -i./ -w239 /sdcard/GM/gamemodes/main.pwn
-
+```
 
 ---
 
@@ -122,9 +122,9 @@ pawncc -Z+ -i/sdcard/GM/include -i./ -w239 /sdcard/GM/gamemodes/main.pwn
 ❌ fatal error 100
 
 Path salah / storage belum diizinkan
-
+```bash
 termux-setup-storage
-
+```
 
 ---
 
